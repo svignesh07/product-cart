@@ -1,0 +1,37 @@
+<form [formGroup]="form" (ngSubmit)="addProduct(form.value)">
+  <div class="form-container">
+    <div class="row columns">
+      <h1>{{ title }}</h1>
+      <input type="hidden" [(ngModel)]="product.id" formControlName="id">
+      <label>Name
+        <input type="text" [(ngModel)]="product.name" formControlName="name">
+      </label>
+      <div class="alert" *ngIf="!form.controls['name'].valid && form.controls['name'].touched">
+        Please enter name of the product
+      </div>
+      <label>Description
+        <textarea [(ngModel)]="product.description" formControlName="description"></textarea>
+      </label>
+      <div class="alert" *ngIf="!form.controls['description'].valid && form.controls['description'].touched">
+        Please enter product's description
+      </div>
+
+      <label>Price (Rs)
+        <input type="number" [(ngModel)]="product.price" formControlName="price">
+      </label>
+      <div class="alert" *ngIf="!form.controls['price'].valid && form.controls['price'].touched">
+        Please enter product's price
+      </div>
+
+      <label>Image
+        <input type="url" [(ngModel)]="product.image" formControlName="image">
+      </label>
+      <div class="alert" *ngIf="!form.controls['image'].valid && form.controls['image'].touched">
+        Please select a imageUrl for the product
+      </div>
+
+      <input type="submit" class="button expanded" value="Save" [disabled]="!form.valid">
+    </div>
+  </div>
+
+</form>

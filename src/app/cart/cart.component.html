@@ -1,0 +1,19 @@
+<br><br>
+<div class="flex-box">
+
+  <div class="medium-12 columns card-container callout ml1">
+    <div class="float-right">
+      <span class="label float-right">Total cost: Rs {{ total_cost }} /-</span>
+      <span class="total-label label float-right">Total items: <span class="badge warning"> {{ total_items }}</span></span>
+    </div>
+    <div class="row"></div>
+    <div class="no_cart_products" *ngIf="cart_products.length == 0 else showCartProducts">
+      No products in Cart
+    </div>
+
+    <ng-template #showCartProducts>
+      <app-cart-product [cart_products]="cart_products" (productDeleted) = "onProductDelete()"></app-cart-product>
+    </ng-template>
+  </div>
+
+</div>

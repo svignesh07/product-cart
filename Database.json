@@ -1,0 +1,20 @@
+{
+  "cartProducts": [
+    {
+      "name": "saf12",
+      "description": "sd12",
+      "price": 441,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1K6jvzxS7luzpJflG54QzaOBUj19Z6S1VzkxRBabGWMKARYw0bw",
+      "id": 1
+    }
+  ],
+  "products": [
+    {
+      "name": "saf12",
+      "description": "sd12",
+      "price": 441,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1K6jvzxS7luzpJflG54QzaOBUj19Z6S1VzkxRBabGWMKARYw0bw",
+      "id": 1
+    }
+  ]
+}

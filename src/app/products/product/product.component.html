@@ -1,0 +1,22 @@
+
+<div class="card" *ngFor="let product of products">
+  <div class="card-divider">
+    <h6>{{ product.name }}</h6>
+  </div>
+  <div class="card-section">
+    <p>{{ product.description }}</p>
+    <img class="product-image" src="{{product.image}}" alt="">
+  </div>
+  <div class="card-section">
+    <div class="label">Rs {{ product.price }}</div>
+    <a (click)="deleteProduct(product)" class="button alert small float-right ml1">
+      Delete
+    </a>
+    <a [routerLink]="['/products', product.id]" class="button secondary small float-right">
+      Edit
+    </a>
+    <a (click)="addProductToCart(product)" class="button success small float-right">
+      Add to Cart
+    </a>    
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="medium-offset-3">
+      <br><br><br>
+      <div class="medium-offset-2 medium-3">
+        <strong>Select Chart type</strong>
+        <select (change)="setChartType(type.value)" #type>
+          <option value="bar">bar</option>
+          <option value="pie">pie</option>
+        </select>
+      </div>
+      <div class="no_products" *ngIf="chart_type == 'bar' else show_pie_chart">
+        <ngx-charts-bar-vertical
+          [view]="view"
+          [scheme]="colorScheme"
+          [results]="single"
+          [gradient]="gradient"
+          [xAxis]="showXAxis"
+          [yAxis]="showYAxis"
+          [legend]="showLegend"
+          [showXAxisLabel]="showXAxisLabel"
+          [showYAxisLabel]="showYAxisLabel"
+          [xAxisLabel]="xAxisLabel"
+          [yAxisLabel]="yAxisLabel"
+          (select)="onSelect($event)">
+        </ngx-charts-bar-vertical>
+      </div>
+    
+      <ng-template #show_pie_chart>
+        <ngx-charts-pie-chart
+          [view]="view"
+          [scheme]="colorScheme"
+          [results]="single"
+          [legend]="showLegend"
+          [explodeSlices]="explodeSlices"
+          [labels]="showLabels"
+          [doughnut]="doughnut"
+          [gradient]="gradient"
+          (select)="onSelect($event)">
+        </ngx-charts-pie-chart>
+      </ng-template>
+  </div>
+
+  
+</div>
