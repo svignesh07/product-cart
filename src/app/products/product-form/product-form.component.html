@@ -16,21 +16,29 @@
         Please enter product's description
       </div>
 
-      <label>Price (Rs)
-        <input type="number" [(ngModel)]="product.price" formControlName="price">
-      </label>
-      <div class="alert" *ngIf="!form.controls['price'].valid && form.controls['price'].touched">
-        Please enter product's price
-      </div>
-
-      <label>Image
+      <label>Image (URL)
         <input type="url" [(ngModel)]="product.image" formControlName="image">
       </label>
       <div class="alert" *ngIf="!form.controls['image'].valid && form.controls['image'].touched">
         Please select a imageUrl for the product
       </div>
 
-      <input type="submit" class="button expanded" value="Save" [disabled]="!form.valid">
+      <label>Price (Rs)
+        <input type="number" [(ngModel)]="product.price" formControlName="price" minValue="0">
+      </label>
+      <div class="alert" *ngIf="!form.controls['price'].valid && form.controls['price'].touched">
+        Please enter product's price
+      </div>
+
+      <label>Initial Stock Quantity
+        <input type="number" [(ngModel)]="product.quantity" formControlName="quantity" minValue="0">
+      </label>
+      <div class="alert" *ngIf="!form.controls['quantity'].valid && form.controls['quantity'].touched">
+        Please enter product's quantity
+      </div>
+
+
+      <input type="submit" class="button expanded" value="Add" [disabled]="!form.valid">
     </div>
   </div>
 

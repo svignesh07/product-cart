@@ -5,4 +5,68 @@
   top: 0;
   left: 0;
   z-index: 10;
+  .top-bar-right {
+    .menu {
+      li {
+        margin-right: 30px;
+        display: inline-block;
+        a {
+          padding-left: 0;
+          padding-right: 0;
+          background: transparent;
+          position: relative;
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            border-bottom: 2px solid #1779b9;
+            transition: 0.4s;
+          }
+          &:hover {
+            color: #1779b9;
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+        &.active {
+          a {
+            background: transparent;
+            color: #1779b9;
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              border-bottom: 2px solid #1779b9;
+            }
+          }
+        }
+        &.cart-li {
+          a {
+            padding-left: 40px;
+            padding-right: 30px;
+            .icon {
+              position: absolute;
+              width: 30px;
+              left: 0;
+              top: 5px;
+            }
+            .badge {
+              position: absolute;
+              top: 10px;
+              right: 0;
+              height: 20px;
+              line-height: 14px;
+              font-weight: bold;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
 }

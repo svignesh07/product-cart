@@ -28,7 +28,7 @@ export class ProductComponent implements OnDestroy {
       price += parseFloat(array[i].price);
     }
     return price;
-  }  
+  }
 
   updateCart() {
     this.total_cost = this.calculateTotalPrice(this.cart_products);
@@ -36,7 +36,7 @@ export class ProductComponent implements OnDestroy {
 
   onProductDelete() {
     this.updateCart();
-  }  
+  }
 
   removeProductFromCart(product) {
 

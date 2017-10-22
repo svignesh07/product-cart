@@ -10,7 +10,6 @@ import { Subscription } from 'rxjs/Rx';
 })
 export class ProductComponent implements OnDestroy {
   deleteProductSubscription: Subscription;
-
   @Input() products;
   @Output() productDeleted: EventEmitter<any> = new EventEmitter<any>();
 
@@ -20,13 +19,15 @@ export class ProductComponent implements OnDestroy {
   }
 
   addProductToCart(product) {
-    let path = 'cartProducts';    
+    let path = 'cartProducts';
+    debugger
+    product.quantity = "";
     this.productsService.addProduct(path, product).subscribe((data) => {
       alert("successfully added to cart")
     }, (err) => {
-      console.log(err.statusText);       
+      console.log(err.statusText);
     });
-  }  
+  }
 
   deleteProduct(product) {
 
@@ -42,6 +43,12 @@ export class ProductComponent implements OnDestroy {
           alert('Could\'nt delete the product.');
         });
     }
+  }
+  incrementQuantity(product) {
+
+  }
+  decrementQuantity(product) {
+
   }
 
   ngOnDestroy() {

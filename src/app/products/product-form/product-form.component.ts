@@ -24,23 +24,24 @@ export class ProductFormComponent implements OnInit {
         id: [null, ''],
         name: ['', Validators.required],
         description: ['', Validators.required],
-        price: ['', Validators.required],
         image: ['', Validators.required],
-      });      
+        price: ['', Validators.required],
+        quantity: ['', Validators.required]
+      });
      }
 
      ngOnInit() {
       this.getProductSubscription = this.route.params.subscribe(params => {
-  
+
         const product_id = params['id']
-  
+
         this.title = product_id ? 'Edit Product' : 'New Product';
         let path = 'products';
-  
+
         if (!product_id) {
           return;
         }
-  
+
         this.getProductsSubscription = this.productsService.getProduct(path, product_id)
           .subscribe(
           product => this.product = product,
@@ -51,7 +52,7 @@ export class ProductFormComponent implements OnInit {
           });
       });
     }
-  
+
     addProduct(product) {
       let result;
       let path = "products";
@@ -70,11 +71,11 @@ export class ProductFormComponent implements OnInit {
           result = this.productsService.addProduct(path, product);
         }
       });
-  
+
       // Route to products page after product addition or updation
       result.subscribe(data => this.router.navigate(['products']));
     }
-  
+
     ngOnDestroy() {
       // Unsubscribe
       if (this.getProductsSubscription) {

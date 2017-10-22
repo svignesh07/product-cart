@@ -1,19 +1,16 @@
-<br><br>
 <div class="flex-box">
-
-  <div class="medium-12 columns card-container callout ml1">
-    <h4 class="medium-4">
-      Filter products
-      <input type="text" (keyup)="filterProducts(search.value)" #search placeholder="Search for...">
-    </h4>
-    <div class="row"><hr></div>
+  <div class="row columns card-container ml1">
+    <div class="callout">
+      <h6 class="medium-4">
+        Filter products
+        <input type="text" (keyup)="filterProducts(search.value)" #search placeholder="Search for...">
+      </h6>
+    </div>
     <div class="no_products" *ngIf="products.length == 0 else showProducts">
       No products
     </div>
-
     <ng-template #showProducts>
       <app-product [products]="products" (productDeleted) = "onProductDelete()"></app-product>
     </ng-template>
   </div>
-
 </div>

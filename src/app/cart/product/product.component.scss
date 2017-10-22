@@ -2,3 +2,44 @@
   max-width: 200px;
   max-height: 100px;
 }
+
+.card-divider {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #187;
+  color: #eaeaea;
+  position: relative;
+  a {
+    margin-left: 10px;
+    .icon {
+      width: 30px;
+      opacity: 0.8;
+    }
+    &:hover {
+      transition: all 0.5s ease-in;
+      .icon {
+        opacity: 1;
+      }
+    }
+  }
+
+}
+
+.card-section {
+  position: relative;
+  .quantity-container {
+    position: absolute;
+    bottom: 50px;
+    right: 0;
+    input[type='number'] {
+      width: 60px;
+      height: 41px;
+      margin: 0;
+    }
+    button {
+      outline: none;
+      margin: 0;
+    }
+  }
+}

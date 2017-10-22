@@ -1,14 +1,31 @@
 <div class="top-bar">
   <div class="top-bar-left">
     <ul class="dropdown menu" data-dropdown-menu>
-      <li><a routerLink=""><strong>Product Cart</strong></a></li>
+      <li>
+        <a routerLink="">
+          <strong>Product Cart</strong>
+        </a>
+      </li>
     </ul>
   </div>
   <div class="top-bar-right">
-    <ul class="menu">
-      <li routerLinkActive="active"><a routerLink="/products/new">Add Product</a></li>
-      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/products" routerLinkActive="active">Products</a></li>
-      <li routerLinkActive="active"><a routerLink="/cart">Cart</a></li>
-    </ul>
+    <nav class="hover-underline-menu" data-menu-underline-from-center>
+      <ul class="menu align-center">
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+          <a routerLink="">Dashboard</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/products/new">Add Product</a>
+        </li>
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+          <a routerLink="/products" routerLinkActive="active">Products</a>
+        </li>
+        <li routerLinkActive="active" class="cart-li">
+          <a routerLink="/cart">
+            <img src="assets/images/cart.svg" class="icon" alt="cart"> Cart <span class="badge">{{total_items}}</span></a>
+        </li>
+      </ul>
+
+    </nav>
   </div>
 </div>
