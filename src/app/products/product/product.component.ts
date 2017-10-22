@@ -23,7 +23,7 @@ export class ProductComponent implements OnDestroy {
 
   // Add to cart
   addToCart(product) {
-    this.cartAction.addToCart(product, this.quantity || 1)
+    this.cartAction.addToCart(product, this.quantity)
   }
 
   // Delete product from the stock

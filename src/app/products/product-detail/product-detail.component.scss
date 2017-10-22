@@ -1,0 +1,26 @@
+.back-button {
+  position: absolute;
+  top: 75px;
+  left: 20px;
+}
+.product-detail-container {
+  width: 70%;
+  margin: 0 auto;
+  .quantity-container {
+    input[type='number'] {
+      pointer-events: none;
+      width: 60px;
+      height: 41px;
+      margin: 0;
+    }
+    button {
+      outline: none;
+      margin: 0;
+    }
+  }
+}
+
+.product-image {
+  max-width: 200px;
+  max-height: 100px;
+}

@@ -1,0 +1,26 @@
+<br>
+<div *ngIf="selectedProduct">
+  <a [routerLink]="['/products']" class="button alert back-button">Back</a>
+  <div class="product-detail-container callout">
+    <h4>{{selectedProduct.name}}</h4>
+    <div class="thumbnail">
+      <img class="product-image" src={{selectedProduct.image}} />
+    </div>
+
+    <p>{{selectedProduct.description}}</p>
+    <p class="label">${{selectedProduct.price}}</p>
+    <p>
+      <em>{{selectedProduct.quantity}} left in stock</em>
+    </p>
+    <div class="medium-3 quantity-container flex-box flex-vertical-end">
+      <span class="mr1">Quantity: </span>
+      <div class="flex-box">
+        <button type="button" class="button hollow" (click)=decrementQuantity()>-</button>
+        <input type="number" class="nomargin text-right" [(ngModel)]="quantity">
+        <button type="button" class="button hollow" (click)=incrementQuantity(selectedProduct)>+</button>
+      </div>
+    </div>
+    <br>
+    <button (click)="addToCart(selectedProduct)" class="button success">Add to Cart</button>
+  </div>
+</div>

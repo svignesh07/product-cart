@@ -15,6 +15,14 @@
       "price": 1000,
       "quantity": 40,
       "id": 3
+    },
+    {
+      "name": "Coconut",
+      "description": "The coconut tree (Cocos nucifera) is a member of the family Arecaceae (palm family) and the only species of the genus Cocos. The term coconut can refer to the whole coconut palm or the seed, or the fruit, which, botanically, is a drupe, not a nut.",
+      "image": "http://media.mercola.com/assets/images/foodfacts/coconut-nutrition-facts.jpg",
+      "price": 25,
+      "quantity": 6,
+      "id": 4
     }
   ]
 }

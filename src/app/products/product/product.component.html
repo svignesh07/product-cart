@@ -5,7 +5,7 @@
       <a (click)="deleteProduct(product)" class="float-right ml1" title="delete product">
         <img class="icon" src="assets/images/trash-can.svg" alt="">
       </a>
-      <a [routerLink]="['/products', product.id]" class="float-right" title="edit product">
+      <a [routerLink]="['/products', product.id, 'edit']" class="float-right" title="edit product">
         <img class="icon" src="assets/images/pencil.svg" alt="">
       </a>
     </div>
@@ -28,6 +28,6 @@
     </div>
     <div class="label">Rs {{ product.price }}</div>
     <button (click)="addToCart(product)" class="button success small float-right">Add to Cart</button>
-    <button (click)="clickedProduct(product)" class="button warning small float-right">Details</button>
+    <a [routerLink]="['/products', product.id]" class="button warning small float-right">Details</a>
   </div>
 </div>

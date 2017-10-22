@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 
 import { ProductsComponent } from './products.component';
 import { ProductFormComponent } from './product-form/product-form.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductsService } from './products.service';
 import { ProductComponent } from './product/product.component';
 
@@ -20,7 +21,8 @@ import { ProductComponent } from './product/product.component';
   declarations: [
     ProductsComponent,
     ProductFormComponent,
-    ProductComponent
+    ProductComponent,
+    ProductDetailComponent
   ],
   exports: [
     ProductsComponent
