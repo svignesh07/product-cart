@@ -33,6 +33,7 @@
     bottom: 50px;
     right: 0;
     input[type='number'] {
+      pointer-events: none;
       width: 60px;
       height: 41px;
       margin: 0;

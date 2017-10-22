@@ -1,7 +1,7 @@
 import { Component, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
 import { ProductsService } from './../products.service';
 import { Subscription } from 'rxjs/Rx';
-
+import { CartAction } from 'app/store/actions/cart.actions';
 
 @Component({
   selector: 'app-product',
@@ -10,25 +10,23 @@ import { Subscription } from 'rxjs/Rx';
 })
 export class ProductComponent implements OnDestroy {
   deleteProductSubscription: Subscription;
+  private quantity: number = 1;
+
   @Input() products;
   @Output() productDeleted: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private productsService: ProductsService) {}
+  constructor(private productsService: ProductsService,
+              private cartAction: CartAction) {}
 
   ngOnInit() {
   }
 
-  addProductToCart(product) {
-    let path = 'cartProducts';
-    debugger
-    product.quantity = "";
-    this.productsService.addProduct(path, product).subscribe((data) => {
-      alert("successfully added to cart")
-    }, (err) => {
-      console.log(err.statusText);
-    });
+  // Add to cart
+  addToCart(product) {
+    this.cartAction.addToCart(product, this.quantity || 1)
   }
 
+  // Delete product from the stock
   deleteProduct(product) {
 
     if (confirm('Are you sure you want to delete - ' + product.name + '?')) {

@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
 import { CartComponent } from './cart.component';
-import { ProductComponent } from './product/product.component';
 
 @NgModule({
   imports: [
@@ -16,8 +15,7 @@ import { ProductComponent } from './product/product.component';
     HttpModule
   ],
   declarations: [
-    CartComponent,
-    ProductComponent
+    CartComponent
   ],
   exports: [
   ],

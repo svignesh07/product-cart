@@ -1,54 +1,64 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-
-import { ProductsService } from '../products/products.service';
-import { Product } from '../products/product';
+import { Component } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
+import { CartAction } from 'app/store/actions/cart.actions';
 
 @Component({
-  selector: 'app-cart',
+  selector: 'cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss']
+  styleUrls: ['./cart.component.scss'],
 })
-export class CartComponent implements OnInit, OnDestroy {
-  private cart_products_path = 'cartProducts';
-  private getProductsSubscription: any;
-  cart_products = [];
-  total_items = 0;
-  total_cost = 0;
+export class CartComponent {
 
-  constructor(private productsService: ProductsService) { }
+  public cart = [];
+  public totalPrice: number;
+  public totalQuantity: number;
+  public cartSubscription: Subscription;
+
+  constructor(private cartStore: CartAction) {}
 
   ngOnInit() {
-    this.getProductsSubscription = this.productsService.getProducts(this.cart_products_path)
-    .subscribe((data) => {
-      this.cart_products = data;
-      this.total_cost = this.calculateTotalPrice(data);
-      this.total_items = this.cart_products.reduce(function (acc, obj) { return acc + obj.quantity; }, 0);
-    });
+    this.cartSubscription = this.cartStore.getState().subscribe(res => {
+      this.cart = res.products
+      this.getTotalPrice()
+    })
   }
 
-  updateCart() {
-    this.total_cost = this.calculateTotalPrice(this.cart_products);
-    this.total_items = this.cart_products.reduce(function (acc, obj) { return acc + obj.quantity; }, 0);
+  removeProduct(product) {
+    this.cartStore.removeFromCart(product)
   }
 
-  // Returns the total Price for each Product Category
-  calculateTotalPrice(array) {
-    let price = 0;
+  getTotalPrice() {
+    let totalCost: Array<number> = []
+    let quantity: Array<number> = []
+    let intPrice: number
+    let intQuantity: number
+    this.cart.forEach((item, i) => {
+      intPrice = parseInt(item.price)
+      intQuantity = parseInt(item.quantity)
+      totalCost.push(intPrice * intQuantity)
+      quantity.push(intQuantity)
+    })
 
-    for (let i = 0; i < array.length; i++) {
-      price += parseFloat(array[i].price) * parseFloat(array[i].quantity);
-    }
-    return price;
+    this.totalPrice = totalCost.reduce((acc, item) => {
+      return acc += item
+    }, 0)
+    this.totalQuantity = quantity.reduce((acc, item) => {
+      return acc += item
+    }, 0)
   }
 
-  onProductDelete() {
-    this.updateCart();
+  incrementQuantity(product) {
+    this.cartStore.incrementQuantity(product)
+  }
+
+  decrementQuantity(product) {
+    this.cartStore.decrementQuantity(product);
   }
 
   ngOnDestroy() {
     // Unsubscribe
-    if (this.getProductsSubscription) {
-      this.getProductsSubscription.unsubscribe();
+    if (this.cartSubscription) {
+      this.cartSubscription.unsubscribe();
     }
   }
 

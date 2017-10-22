@@ -1,21 +1,38 @@
-.total-label {
-  margin-right: 20px;
-  padding-right: 30px;
-  position: relative;
-  .badge {
-    position: absolute;
-    right: 5px;
-
+.table-container {
+  width: 70%;
+  margin: 0 auto;
+  table {
+    border: 1px solid hsla(0,0%,4%,.25);
+    tfoot {
+      tr {
+        td {
+          background: #ffe0b2;
+        }
+      }
+    }
   }
 }
 
-.card-container {
-  width: 70%;
-  margin: 0 auto;
+.product-image {
+  max-width: 200px;
+  max-height: 100px;
 }
 
 .no_cart_products {
   color: #bbb;
   text-align: center;
   padding: 25px;
+}
+
+.quantity-container {
+  input[type='number'] {
+    pointer-events: none;
+    width: 60px;
+    height: 41px;
+    margin: 0;
+  }
+  button {
+    outline: none;
+    margin: 0;
+  }
 }

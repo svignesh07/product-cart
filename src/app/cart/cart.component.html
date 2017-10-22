@@ -1,18 +1,68 @@
-<div class="flex-box">
-  <div class="columns card-container ml1">
-    <br>
-    <div class="float-right">
-      <span class="label float-right">Total cost: Rs {{ total_cost }} /-</span>
-      <span class="total-label label float-right">Total items: <span class="badge warning"> {{ total_items }}</span></span>
-    </div>
-    <div class="row"></div>
-    <div class="no_cart_products" *ngIf="cart_products.length == 0 else showCartProducts">
-      No products in Cart
-    </div>
+<div class="table-container">
+  <br>
+  <table>
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Product Image</th>
+        <th>Unit Price</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th></th>
+      </tr>
+    </thead>
 
-    <ng-template #showCartProducts>
-      <app-cart-product [cart_products]="cart_products" (productDeleted) = "onProductDelete()"></app-cart-product>
-    </ng-template>
-  </div>
+    <tbody>
+      <tr class="medium-12" *ngIf="cart.length <= 0">
+        <td colspan="6">
+          <h6 class="no_cart_products">No items in the Cart!</h6>
+        </td>
+      </tr>
+      <tr *ngFor="let product of cart;">
+        <td>
+          <h6>{{product.name}}</h6>
+        </td>
+        <td class="text-center">
+          <img src={{product.image}} class="product-image" />
+        </td>
+        <td class="text-right">
+          <h6>{{product.price}}</h6>
+        </td>
+        <td>
+          <div class="medium-6 quantity-container flex-box flex-vertical-end">
+            <div class="flex-box">
+              <button type="button" class="button hollow" (click)="decrementQuantity(product)">-</button>
+              <input class="text-right" type="number" value="{{product.quantity}}">
+              <button type="button" class="button hollow" (click)="incrementQuantity(product)">+</button>
+            </div>
+          </div>
+        </td>
+        <td class="text-right">
+          <h6>{{product.price * product.quantity}}</h6>
+        </td>
+        <td class="text-center">
+          <button (click)="removeProduct(product)" class="button alert small nomargin">Remove</button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr class="warning">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="text-right">
+          Total Items:
+          <h6>{{totalQuantity}}</h6>
+        </td>
+        <td class="text-right">
+            Total:
+            <h6>${{totalPrice}}</h6>
+          </td>
+        <td class="text-center">
+          <button class="button success nomargin" disabled>Checkout</button>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
 
 </div>

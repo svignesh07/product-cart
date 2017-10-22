@@ -1,20 +1,20 @@
 {
-  "cartProducts": [
-    {
-      "name": "saf12",
-      "description": "sd12",
-      "price": 441,
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1K6jvzxS7luzpJflG54QzaOBUj19Z6S1VzkxRBabGWMKARYw0bw",
-      "id": 1
-    }
-  ],
   "products": [
     {
-      "name": "saf12",
-      "description": "sd12",
-      "price": 441,
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1K6jvzxS7luzpJflG54QzaOBUj19Z6S1VzkxRBabGWMKARYw0bw",
-      "id": 1
+      "id": 1,
+      "name": "Bread",
+      "description": "This bread is healthy and delicious. Enjoy your breakfast.",
+      "image": "https://www.panerabread.com/foundation/menu/details/sourdough-bread-loaf.jpg/_jcr_content/renditions/sourdough-bread-loaf.desktop.jpeg",
+      "price": 70,
+      "quantity": 300
+    },
+    {
+      "name": "Maracuja",
+      "description": "Passiflora edulis is a vine species of passion flower that is native to southern Brazil through Paraguay to northern Argentina.",
+      "image": "https://www.organicfacts.net/wp-content/uploads/passionfruit.jpg",
+      "price": 1000,
+      "quantity": 40,
+      "id": 3
     }
   ]
 }

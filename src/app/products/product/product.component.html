@@ -16,19 +16,18 @@
   </div>
   <div class="card-section">
     <div class="medium-6 quantity-container flex-box flex-vertical-end">
-      <em class="medium-8 text-right mr1">({{ product.quantity }} available.)</em>
+      <em class="medium-8 text-right mr1">({{ product.quantity }} in stock)</em>
       <div class="flex-box flex-direction-column flex-vertical-center-align mr1">
         <h6 class="text-right">Unit(s)</h6>
         <div class="flex-box">
           <button type="button" class="button hollow" (click)="decrementQuantity()">-</button>
-          <input class="text-right" type="number" value="1">
+          <input class="text-right" type="number" value="{{quantity}}">
           <button type="button" class="button hollow" (click)="incrementQuantity()">+</button>
         </div>
       </div>
     </div>
     <div class="label">Rs {{ product.price }}</div>
-    <a (click)="addProductToCart(product)" class="button success small float-right">
-      Add to Cart
-    </a>
+    <button (click)="addToCart(product)" class="button success small float-right">Add to Cart</button>
+    <button (click)="clickedProduct(product)" class="button warning small float-right">Details</button>
   </div>
 </div>

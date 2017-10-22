@@ -11,10 +11,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductsRouting } from './products/products.routing';
 import { ProductsModule } from './products/products.module';
 import { CartComponent } from './cart/cart.component';
-import { ProductComponent } from './cart/product/product.component';
 import { CartsModule } from './cart/carts.module';
 import { CartsRouting } from './cart/carts.routing';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './store/reducers';
+import { ACTIONS } from './store/actions';
 
 @NgModule({
   declarations: [
@@ -27,14 +30,15 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule,
     ProductsModule,
     ProductsRouting,
     CartsModule,
     CartsRouting,
-    NgxChartsModule
+    NgxChartsModule,
+    AppRoutingModule,
+    StoreModule.forRoot(reducers, { }),
   ],
-  providers: [],
+  providers: [ACTIONS],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
