@@ -20,7 +20,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
     .subscribe((data) => {
       this.products = data;
       this.total_cost = this.calculateTotalPrice(data);
-    });    
+    });
   }
 
   updateCart() {
@@ -31,15 +31,15 @@ export class ProductsComponent implements OnInit, OnDestroy {
     if(search.length > 0) {
       this.productsService.getProducts(this.products_path)
       .subscribe((data) => {
-        this.products = this.products.filter((product) => {
-          return product.name.indexOf(search) > -1;
+        this.products = data.filter((product) => {
+          return product.name.toLowerCase().indexOf(search.toLowerCase()) > -1;
         });
       });
     } else {
       this.productsService.getProducts(this.products_path)
       .subscribe((data) => {
         this.products = data;
-      });          
+      });
     }
 
   }
