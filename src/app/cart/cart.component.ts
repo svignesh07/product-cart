@@ -17,38 +17,40 @@ export class CartComponent {
   constructor(private cartStore: CartAction) {}
 
   ngOnInit() {
-    this.cartSubscription = this.cartStore.getState().subscribe(res => {
-      this.cart = res.products
-      this.getTotalPrice()
+    this.cartSubscription = this.cartStore.getState().subscribe((res) => {
+      this.cart = res.products;
+      this.getTotalPrice();
     })
   }
 
   removeProduct(product) {
-    this.cartStore.removeFromCart(product)
+    this.cartStore.removeFromCart(product);
   }
 
   getTotalPrice() {
-    let totalCost: Array<number> = []
-    let quantity: Array<number> = []
-    let intPrice: number
-    let intQuantity: number
+    let totalCost: Array<number> = [];
+    let quantity: Array<number> = [];
+    let intPrice: number;
+    let intQuantity: number;
     this.cart.forEach((item, i) => {
-      intPrice = parseInt(item.price)
-      intQuantity = parseInt(item.quantity)
-      totalCost.push(intPrice * intQuantity)
-      quantity.push(intQuantity)
+      intPrice = parseInt(item.price);
+      intQuantity = parseInt(item.quantity);
+      totalCost.push(intPrice * intQuantity);
+      quantity.push(intQuantity);
     })
 
     this.totalPrice = totalCost.reduce((acc, item) => {
-      return acc += item
+      return acc += item;
     }, 0)
     this.totalQuantity = quantity.reduce((acc, item) => {
-      return acc += item
+      return acc += item;
     }, 0)
   }
 
   incrementQuantity(product) {
-    this.cartStore.incrementQuantity(product)
+    if(product.quantity < product.total_quantity) {
+      this.cartStore.incrementQuantity(product);
+    }
   }
 
   decrementQuantity(product) {

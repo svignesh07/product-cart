@@ -6,6 +6,7 @@
       "description": "This bread is healthy and delicious. Enjoy your breakfast.",
       "image": "https://www.panerabread.com/foundation/menu/details/sourdough-bread-loaf.jpg/_jcr_content/renditions/sourdough-bread-loaf.desktop.jpeg",
       "price": 70,
+      "sold": 0,
       "quantity": 300
     },
     {
@@ -14,6 +15,7 @@
       "image": "https://www.organicfacts.net/wp-content/uploads/passionfruit.jpg",
       "price": 1000,
       "quantity": 40,
+      "sold": 0,
       "id": 3
     },
     {
@@ -22,6 +24,7 @@
       "image": "http://media.mercola.com/assets/images/foodfacts/coconut-nutrition-facts.jpg",
       "price": 25,
       "quantity": 6,
+      "sold": 0,
       "id": 4
     }
   ]

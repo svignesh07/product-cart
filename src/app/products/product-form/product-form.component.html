@@ -24,17 +24,17 @@
       </div>
 
       <label>Price (Rs)
-        <input type="number" [(ngModel)]="product.price" formControlName="price" minValue="0">
+        <input type="number" [(ngModel)]="product.price" formControlName="price">
       </label>
       <div class="alert" *ngIf="!form.controls['price'].valid && form.controls['price'].touched">
-        Please enter product's price
+        Please enter a valid price
       </div>
 
       <label>Initial Stock Quantity
-        <input type="number" [(ngModel)]="product.quantity" formControlName="quantity" minValue="0">
+        <input type="number" [(ngModel)]="product.quantity" formControlName="quantity">
       </label>
       <div class="alert" *ngIf="!form.controls['quantity'].valid && form.controls['quantity'].touched">
-        Please enter product's quantity
+        Please enter a valid quantity
       </div>
 
 

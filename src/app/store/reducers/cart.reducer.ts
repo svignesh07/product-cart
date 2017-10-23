@@ -11,6 +11,7 @@ export default (state = initialState, action) => {
     case ActionTypes.ADD_TO_CART: {
       const addProduct = Object.assign({}, action.payload.product);
       const index = state.products.findIndex((product) => product.id === action.payload.product.id);
+      addProduct.total_quantity = addProduct.quantity;
       addProduct.quantity = action.payload.quantity;
       addProduct.price = (parseInt(addProduct.price) * parseInt(addProduct.quantity));
       if(index > -1) {

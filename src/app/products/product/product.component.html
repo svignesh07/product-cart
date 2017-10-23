@@ -16,18 +16,18 @@
   </div>
   <div class="card-section">
     <div class="medium-6 quantity-container flex-box flex-vertical-end">
-      <em class="medium-8 text-right mr1">({{ product.quantity }} in stock)</em>
+      <em class="medium-8 text-right mr1">({{ remainingQuantity(product) }} left in stock)</em>
       <div class="flex-box flex-direction-column flex-vertical-center-align mr1">
         <h6 class="text-right">Unit(s)</h6>
         <div class="flex-box">
-          <button type="button" class="button hollow" (click)="decrementQuantity()">-</button>
-          <input class="text-right" type="number" value="{{quantity}}">
-          <button type="button" class="button hollow" (click)="incrementQuantity()">+</button>
+          <button type="button" class="button hollow" (click)="decrementQuantity(product)">-</button>
+          <input class="text-right" type="number" value="{{product.sold + 1}}">
+          <button type="button" class="button hollow" (click)="incrementQuantity(product)">+</button>
         </div>
       </div>
     </div>
     <div class="label">Rs {{ product.price }}</div>
-    <button (click)="addToCart(product)" class="button success small float-right">Add to Cart</button>
+    <button (click)="addToCart(product)" [disabled]="remainingQuantity(product) <= 0" class="button success small float-right">Add to Cart</button>
     <a [routerLink]="['/products', product.id]" class="button warning small float-right">Details</a>
   </div>
 </div>

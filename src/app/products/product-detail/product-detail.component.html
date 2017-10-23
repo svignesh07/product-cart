@@ -10,9 +10,9 @@
     <p>{{selectedProduct.description}}</p>
     <p class="label">${{selectedProduct.price}}</p>
     <p>
-      <em>{{selectedProduct.quantity}} left in stock</em>
+      <em>({{ remainingQuantity(selectedProduct) }} left in stock)</em>
     </p>
-    <div class="medium-3 quantity-container flex-box flex-vertical-end">
+    <div class="medium-3 quantity-container flex-box flex-vertical-center-align">
       <span class="mr1">Quantity: </span>
       <div class="flex-box">
         <button type="button" class="button hollow" (click)=decrementQuantity()>-</button>
