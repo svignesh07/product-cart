@@ -2,6 +2,11 @@
 
 Product Cart is a minimalistic shopping cart experience! Built with Angular 4, and Foundation 6.
 
+## Screenshots
+![Dashboard](https://raw.githubusercontent.com/svignesh07/product-cart/master/screenshots/dashboard.png)
+![Cart](https://raw.githubusercontent.com/svignesh07/product-cart/master/screenshots/cart-page.png)
+![Product Show Page](https://raw.githubusercontent.com/svignesh07/product-cart/master/screenshots/product-show-page.png)
+
 ## Setting up Development server
 
 1) Clone the repository using `git clone https://github.com/svignesh07/product-cart.git`
